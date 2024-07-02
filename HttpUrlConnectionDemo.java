@@ -17,7 +17,7 @@ import java.net.URI;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import com.google.gson.*;
-class Result {
+class HttpUrlConnectionDemo {
     /*
      * Complete the 'getDiscountedPrice' function below.
      *
