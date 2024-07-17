@@ -2,7 +2,9 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,6 +43,12 @@ class A{
         List<Integer> disticntStr = str2.distinct().collect(Collectors.toList());
         disticntStr.forEach(n -> System.out.println(n));
 
+        Set<Integer> s = new HashSet<Integer>();
+        list.stream()
+        .filter(n -> s.add(n))
+        .forEach(n -> System.out.println("Distinct "+n));
+    
+
         //Filter Values Odd Numbers 
         System.out.println("Filter Odd numbers");
         List<Integer> list3 = Arrays.asList(1,2,3,4,3,5,6,8,7,6);
@@ -52,13 +60,6 @@ class A{
         int sum = list3.stream()
         .reduce(0, (c,e) -> c+e);
         System.out.println("Sum of all in list3 is " + sum);
-        
-        
-
-
-
-
-
 
     }
 }
