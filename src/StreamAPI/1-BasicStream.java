@@ -1,10 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -60,6 +55,16 @@ class A{
         int sum = list3.stream()
         .reduce(0, (c,e) -> c+e);
         System.out.println("Sum of all in list3 is " + sum);
+
+        //Sort hashmap by value
+        Map<String,Integer> map = new HashMap<>();
+        map.put("Sambit",25);
+        map.put("Swati",30);
+        map.put("jk",19);
+
+        Map<String,Integer> cmap = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2) -> e1 , LinkedHashMap::new));
 
     }
 }
